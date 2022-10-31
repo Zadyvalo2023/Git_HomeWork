@@ -3,7 +3,7 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Page Title</title>
+    <title>Измеритель длины текста</title>
     <style>
         * {
             font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -15,6 +15,9 @@
             display: block;
             margin-bottom: 20px;
         }
+        #result {
+            margin-top: 20px;
+        }
     </style>
     <script src="main.js"></script>
 </head>
@@ -23,5 +26,6 @@
     <p>Введите текст в поле ниже, и система измерит и покажет его длину.</p>
     <textarea id="text"></textarea>
     <button id="count-button">Посчитать</button>
+    <div id="result"></div>
 </body>
 </html>
