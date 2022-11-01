@@ -25,13 +25,17 @@
         textArea.addEventListener('keyup', function(){
             if (textArea.value.length > 0) {
                 countButton.removeAttribute('disabled');
+                resetButton.removeAttribute('disabled');
             } else {
                 countButton.setAttribute('disabled', 'disabled');
+                resetButton.setAttribute('disabled', 'disabled');
             }
         });
 
         resetButton.addEventListener('click', function(){
             textArea.value = '';
+            resetButton.setAttribute('disabled', 'disabled');
+            countButton.setAttribute('disabled', 'disabled');
         });
     });
 }());
