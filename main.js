@@ -8,10 +8,22 @@
         return count;
     }
 
+    let changeButtonsStatus = function(enable) {
+        let countButton = document.querySelector('#count-button');
+        let resetButton = document.querySelector('#reset-button');
+        if (enable) {
+            countButton.removeAttribute('disabled');
+            resetButton.removeAttribute('disabled');
+        } else {
+            countButton.setAttribute('disabled', 'disabled');
+            resetButton.setAttribute('disabled', 'disabled');
+        }
+    }
+
     document.addEventListener('DOMContentLoaded', function(){
         let textArea = document.querySelector('#text');
-        let countButton = document.querySelector('#count-button');
         let result = document.querySelector('#result');
+        let countButton = document.querySelector('#count-button');
         let resetButton = document.querySelector('#reset-button');
 
         countButton.addEventListener('click', function(){
@@ -23,19 +35,12 @@
         });
 
         textArea.addEventListener('keyup', function(){
-            if (textArea.value.length > 0) {
-                countButton.removeAttribute('disabled');
-                resetButton.removeAttribute('disabled');
-            } else {
-                countButton.setAttribute('disabled', 'disabled');
-                resetButton.setAttribute('disabled', 'disabled');
-            }
+            changeButtonsStatus(textArea.value.length > 0);
         });
 
         resetButton.addEventListener('click', function(){
             textArea.value = '';
-            resetButton.setAttribute('disabled', 'disabled');
-            countButton.setAttribute('disabled', 'disabled');
+            changeButtonsStatus(false);
         });
     });
 }());
