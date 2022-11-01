@@ -19,5 +19,13 @@
                 text.length + ' символов<br>' +
                 '<b>Без пробелов:</b> ' + withoutSpaces + '<br>';
         });
+
+        textArea.addEventListener('keyup', function(){
+            if (textArea.value.length > 0) {
+                button.removeAttribute('disabled');
+            } else {
+                button.setAttribute('disabled', 'disabled');
+            }
+        });
     });
 }());
