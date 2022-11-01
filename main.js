@@ -10,9 +10,11 @@
 
     document.addEventListener('DOMContentLoaded', function(){
         let textArea = document.querySelector('#text');
-        let button = document.querySelector('#count-button');
+        let countButton = document.querySelector('#count-button');
         let result = document.querySelector('#result');
-        button.addEventListener('click', function(){
+        let resetButton = document.querySelector('#reset-button');
+
+        countButton.addEventListener('click', function(){
             let text = textArea.value;
             let withoutSpaces = text.length - countSpaces(text);
             result.innerHTML = '<b>Длина текста:</b> ' +
@@ -22,10 +24,14 @@
 
         textArea.addEventListener('keyup', function(){
             if (textArea.value.length > 0) {
-                button.removeAttribute('disabled');
+                countButton.removeAttribute('disabled');
             } else {
-                button.setAttribute('disabled', 'disabled');
+                countButton.setAttribute('disabled', 'disabled');
             }
+        });
+
+        resetButton.addEventListener('click', function(){
+            textArea.value = '';
         });
     });
 }());
